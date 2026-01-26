@@ -1,7 +1,7 @@
 const RequestButton = () => {
   return (
     <section className="pb-6">
-      <button className="p-5 rounded-2xl bg-black flex items-center justify-between w-full max-w-73.75 font-inter cursor-pointer">
+      <button className="hover:bg-black/90 transition-colors duration-300 ease-out group p-5 rounded-2xl bg-black flex items-center justify-between w-full max-w-73.75 font-inter cursor-pointer">
         <div className="flex items-center gap-4">
           <div className="rounded-xl bg-[#ffffff10] p-3">
             <svg
@@ -36,7 +36,7 @@ const RequestButton = () => {
             </p>
           </div>
         </div>
-        <div>
+        <div className="group-hover:rotate-45 transition-transform duration-300 ease-out">
           <svg
             width="24"
             height="24"

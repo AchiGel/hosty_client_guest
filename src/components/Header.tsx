@@ -2,7 +2,7 @@ const Header = () => {
   return (
     <header className="py-6 flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className="rounded-full bg-black text-white w-10 h-10 flex items-center justify-center font-semibold text-sm font-inter">
+        <div className="rounded-full bg-black text-white w-9 h-9 flex items-center justify-center font-semibold text-sm font-inter">
           EP
         </div>
         <div className="flex flex-col">
@@ -15,7 +15,7 @@ const Header = () => {
         </div>
       </div>
       <button
-        className="w-10 h-10 flex items-center justify-center"
+        className="w-10 h-10 flex items-center justify-center hover:bg-gray-300 rounded-full transition-colors duration-300 ease-out cursor-pointer"
         aria-label="User profile"
       >
         <svg
