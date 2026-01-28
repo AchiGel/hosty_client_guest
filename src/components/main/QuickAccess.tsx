@@ -1,16 +1,24 @@
-import type { JSX } from "react";
+import { useState, type JSX } from "react";
+import MenuModal from "../modals/MenuModal";
+import WifiModal from "../modals/WifiModal";
 
 interface CardType {
   id: number;
   title: string;
   icon: JSX.Element;
+  modalType: "wifi" | "menu";
 }
 
 const QuickAccess = () => {
+  const [activeModal, setActiveModal] = useState<"menu" | "wifi" | null>(null);
+
+  console.log(activeModal);
+
   const cards: CardType[] = [
     {
       id: 1,
       title: "Wi-Fi",
+      modalType: "wifi",
       icon: (
         <svg
           width="20"
@@ -53,6 +61,7 @@ const QuickAccess = () => {
     {
       id: 2,
       title: "Menu",
+      modalType: "menu",
       icon: (
         <svg
           width="26"
@@ -249,26 +258,34 @@ const QuickAccess = () => {
   ];
 
   return (
-    <section className="pb-6 font-inter">
-      <h2 className="text-[10px] font-bold leading-3.75 tracking-[2px] uppercase text-[#A3A3A3] mb-3">
-        Quick Access
-      </h2>
-      <div className="flex items-center gap-3">
-        {cards.map((card) => (
-          <button
-            key={card.id}
-            className="group p-4 rounded-xl flex flex-col w-33.5 gap-3 bg-white
+    <>
+      <section className="pb-6 font-inter">
+        <h2 className="text-[10px] font-bold leading-3.75 tracking-[2px] uppercase text-[#A3A3A3] mb-3">
+          Quick Access
+        </h2>
+        <div className="flex items-center gap-3">
+          {cards.map((card) => (
+            <button
+              onClick={() => setActiveModal(card.modalType)}
+              key={card.id}
+              className="group p-4 rounded-xl flex flex-col w-33.5 gap-3 bg-white
                  text-gray-400 hover:text-black
                  transition-colors duration-300 cursor-pointer"
-          >
-            <div className="transition-colors duration-300">{card.icon}</div>
-            <span className="self-center text-[13px] font-bold leading-5 text-black">
-              {card.title}
-            </span>
-          </button>
-        ))}
-      </div>
-    </section>
+            >
+              <div className="transition-colors duration-300">{card.icon}</div>
+              <span className="self-center text-[13px] font-bold leading-5 text-black">
+                {card.title}
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
+      {activeModal === "menu" ? (
+        <MenuModal />
+      ) : activeModal === "wifi" ? (
+        <WifiModal setActiveModal={setActiveModal} />
+      ) : null}
+    </>
   );
 };
 
