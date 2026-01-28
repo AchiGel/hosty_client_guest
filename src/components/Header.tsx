@@ -7,7 +7,7 @@ const Header = () => {
   const showBackButton = location.pathname !== "/";
 
   return (
-    <header className="py-6 flex items-center justify-between">
+    <header className="py-6 flex items-center justify-between border-b border-gray-300">
       <div className="flex items-center gap-3">
         {showBackButton && (
           <button
