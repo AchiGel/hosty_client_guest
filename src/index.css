@@ -9,3 +9,8 @@
 .font-inter {
   font-family: "Inter", sans-serif;
 }
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}

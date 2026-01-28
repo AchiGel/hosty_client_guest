@@ -1,19 +1,59 @@
+import { useLocation, useNavigate } from "react-router-dom";
+
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const showBackButton = location.pathname !== "/";
+
   return (
     <header className="py-6 flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className="rounded-full bg-black text-white w-9 h-9 flex items-center justify-center font-semibold text-sm font-inter">
-          EP
-        </div>
-        <div className="flex flex-col">
-          <h1 className="text-sm font-bold tracking-wider font-playfair">
-            EPISODE
-          </h1>
-          <span className="text-xs text-[#C5A667] font-inter uppercase">
-            Tbilisi
-          </span>
+        {showBackButton && (
+          <button
+            onClick={() => navigate(-1)}
+            className="cursor-pointer w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-300 transition-colors duration-300 ease-out rotate-225"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 7H17V17"
+                stroke="#000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M7 17L17 7"
+                stroke="#000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        )}
+
+        <div className="flex items-center gap-3">
+          <div className="rounded-full bg-black text-white w-9 h-9 flex items-center justify-center font-semibold text-sm font-inter">
+            EP
+          </div>
+          <div className="flex flex-col">
+            <h1 className="text-sm font-bold tracking-wider font-playfair">
+              EPISODE
+            </h1>
+            <span className="text-xs text-[#C5A667] font-inter uppercase">
+              Tbilisi
+            </span>
+          </div>
         </div>
       </div>
+
       <button
         className="w-10 h-10 flex items-center justify-center hover:bg-gray-300 rounded-full transition-colors duration-300 ease-out cursor-pointer"
         aria-label="User profile"
