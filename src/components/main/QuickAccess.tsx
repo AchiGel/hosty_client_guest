@@ -281,7 +281,7 @@ const QuickAccess = () => {
         </div>
       </section>
       {activeModal === "menu" ? (
-        <MenuModal />
+        <MenuModal setActiveModal={setActiveModal} />
       ) : activeModal === "wifi" ? (
         <WifiModal setActiveModal={setActiveModal} />
       ) : null}
