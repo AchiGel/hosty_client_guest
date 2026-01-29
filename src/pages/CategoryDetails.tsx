@@ -1,9 +1,25 @@
 import { useParams } from "react-router-dom";
 import { CATEGORIES } from "../constants/categories";
 import SubcategoryCard from "../components/SubcategoryCard";
+import { useState, type JSX } from "react";
+import SubcategoryModal from "../components/modals/SubcategoryModal";
+
+export type SubcategoryType = {
+  id: number;
+  title: string;
+  subtitle: string;
+  icon: JSX.Element;
+  options: {
+    id: number;
+    label: string;
+  }[];
+};
 
 const CategoryDetails = () => {
   const params = useParams();
+
+  const [selectedSubcategory, setSelectedSubcategory] =
+    useState<null | SubcategoryType>(null);
 
   const filtered = CATEGORIES.filter(
     (cat) => cat.title === params.id?.replace("_", " "),
@@ -33,9 +49,16 @@ const CategoryDetails = () => {
             title={sub.title}
             subTitle={sub.subtitle}
             icon={sub.icon}
+            onClick={() => setSelectedSubcategory(sub)}
           />
         ))}
       </section>
+      {selectedSubcategory && (
+        <SubcategoryModal
+          subcategory={selectedSubcategory}
+          onClose={() => setSelectedSubcategory(null)}
+        />
+      )}
     </div>
   );
 };
