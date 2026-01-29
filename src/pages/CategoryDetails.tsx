@@ -5,13 +5,9 @@ import SubcategoryCard from "../components/SubcategoryCard";
 const CategoryDetails = () => {
   const params = useParams();
 
-  console.log(params.id);
-
   const filtered = CATEGORIES.filter(
     (cat) => cat.title === params.id?.replace("_", " "),
   );
-
-  console.log(filtered);
 
   return (
     <div>

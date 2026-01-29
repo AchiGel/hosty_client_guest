@@ -29,13 +29,19 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M4 3h12v18H4z" />
+            <path d="M2 4v16"></path>
+            <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+            <path d="M2 17h20"></path>
+            <path d="M6 8v9"></path>
           </svg>
         ),
         options: [
@@ -51,13 +57,19 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <rect x="3" y="7" width="18" height="10" rx="3" />
+            <path d="M2 4v16"></path>
+            <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+            <path d="M2 17h20"></path>
+            <path d="M6 8v9"></path>
           </svg>
         ),
         options: [
@@ -73,13 +85,19 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M3 6h18v12H3z" />
+            <path d="M2 4v16"></path>
+            <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+            <path d="M2 17h20"></path>
+            <path d="M6 8v9"></path>
           </svg>
         ),
         options: [
@@ -94,14 +112,19 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M12 2v6" />
-            <path d="M5 8h14" />
+            <path d="M2 4v16"></path>
+            <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+            <path d="M2 17h20"></path>
+            <path d="M6 8v9"></path>
           </svg>
         ),
         options: [
@@ -149,13 +172,25 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M3 3l18 18" />
+            <path d="M3 3h.01"></path>
+            <path d="M7 5h.01"></path>
+            <path d="M11 7h.01"></path>
+            <path d="M3 7h.01"></path>
+            <path d="M7 9h.01"></path>
+            <path d="M3 11h.01"></path>
+            <rect width="4" height="4" x="15" y="5"></rect>
+            <path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"></path>
+            <path d="m13 14 8-2"></path>
+            <path d="m13 19 8-2"></path>
           </svg>
         ),
         options: [
@@ -170,13 +205,25 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <rect x="4" y="6" width="16" height="10" rx="2" />
+            <path d="M3 3h.01"></path>
+            <path d="M7 5h.01"></path>
+            <path d="M11 7h.01"></path>
+            <path d="M3 7h.01"></path>
+            <path d="M7 9h.01"></path>
+            <path d="M3 11h.01"></path>
+            <rect width="4" height="4" x="15" y="5"></rect>
+            <path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"></path>
+            <path d="m13 14 8-2"></path>
+            <path d="m13 19 8-2"></path>
           </svg>
         ),
         options: [
@@ -191,14 +238,25 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M4 7h16" />
-            <path d="M6 7v13h12V7" />
+            <path d="M3 3h.01"></path>
+            <path d="M7 5h.01"></path>
+            <path d="M11 7h.01"></path>
+            <path d="M3 7h.01"></path>
+            <path d="M7 9h.01"></path>
+            <path d="M3 11h.01"></path>
+            <rect width="4" height="4" x="15" y="5"></rect>
+            <path d="m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2"></path>
+            <path d="m13 14 8-2"></path>
+            <path d="m13 19 8-2"></path>
           </svg>
         ),
         options: [
@@ -236,13 +294,16 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M3 12h18" />
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
           </svg>
         ),
         options: [
@@ -257,14 +318,16 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M9 18h6" />
-            <path d="M12 2a6 6 0 0 0-3 11v2h6v-2a6 6 0 0 0-3-11Z" />
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
           </svg>
         ),
         options: [
@@ -279,13 +342,16 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M12 2v20" />
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
           </svg>
         ),
         options: [
@@ -300,13 +366,16 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <rect x="3" y="6" width="18" height="12" rx="2" />
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
           </svg>
         ),
         options: [
@@ -347,13 +416,19 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M8 2h8l-1 18H9Z" />
+            <path d="M8 22h8"></path>
+            <path d="M7 10h10"></path>
+            <path d="M12 15v7"></path>
+            <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"></path>
           </svg>
         ),
         options: [
@@ -368,13 +443,19 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <circle cx="12" cy="12" r="8" />
+            <path d="M8 22h8"></path>
+            <path d="M7 10h10"></path>
+            <path d="M12 15v7"></path>
+            <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z"></path>
           </svg>
         ),
         options: [
@@ -412,13 +493,16 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M12 2v20" />
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
           </svg>
         ),
         options: [
@@ -433,14 +517,16 @@ export const CATEGORIES = [
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path d="M12 6v12" />
-            <path d="M6 12h12" />
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
           </svg>
         ),
         options: [{ id: 1, label: "Write a note" }],
