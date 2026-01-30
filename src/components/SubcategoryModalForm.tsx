@@ -48,7 +48,7 @@ const SubcategoryModalForm = ({
                 </button>
 
                 <span className="text-[#111111] font-semibold w-4 text-center text-sm sm:text-base">
-                  {quantities[option.id]}
+                  {quantities[option.id] || 0}
                 </span>
 
                 <button

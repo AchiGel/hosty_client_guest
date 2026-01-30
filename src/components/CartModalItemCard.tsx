@@ -42,6 +42,11 @@ const CartModalItemCard = ({
           </svg>
         </button>
       </div>
+      {item.instructions && (
+        <p className="mt-2 text-xs text-[#676f7e] text-left">
+          Notes: {item.instructions}
+        </p>
+      )}
       <div className="mt-3 flex items-center justify-between">
         <div className="flex items-center gap-2 rounded-lg bg-[#e8eaee] p-1">
           <button

@@ -102,7 +102,7 @@ const CartModal = ({
                   <button
                     onClick={handleSendAll}
                     disabled={items.length === 0}
-                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md h-10 px-4 py-2"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-[#182543] text-[#eee8dd] hover:bg-[#18254391] shadow-sm hover:shadow-md h-10 px-4 py-2"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ const CartModal = ({
                     Send all
                   </button>
                 </div>
-                <p className="mt-2 text-xs text-[#676f7e]">
+                <p className="mt-2 text-xs text-[#676f7e] text-left">
                   Sends everything as one batch to the hotel team.
                 </p>
               </div>
