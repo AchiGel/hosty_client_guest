@@ -23,6 +23,7 @@ export const AMENITIES = [
     ),
     title: "Spa",
     AccessTime: "10:00 - 22:00",
+    message: "Spa is open from 10:00 to 22:00. Visit lobby level.",
   },
   {
     id: 2,
@@ -43,6 +44,7 @@ export const AMENITIES = [
     ),
     title: "Pool",
     AccessTime: "08:00 - 21:00",
+    message: "Indoor pool is located on Level -1.",
   },
   {
     id: 3,
@@ -63,6 +65,7 @@ export const AMENITIES = [
     ),
     title: "Gym",
     AccessTime: "24/7 Access",
+    message: "Fitness center is available 24/7. Use your room key.",
   },
   {
     id: 4,
@@ -85,5 +88,6 @@ export const AMENITIES = [
     ),
     title: "Laundry",
     AccessTime: "Same-day service",
+    message: "Request laundry service from the menu.",
   },
 ];
