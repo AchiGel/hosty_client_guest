@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import CartModal from "./modals/CartModal";
 
 const Header = ({
@@ -14,7 +14,7 @@ const Header = ({
   const showBackButton = location.pathname !== "/";
 
   return (
-    <header className="py-6 flex items-center justify-between border-b border-gray-300">
+    <header className="py-4 sm:py-6 flex items-center justify-between border-b border-gray-300">
       {cartOpen && <CartModal setCartOpen={setCartOpen} />}
       <div className="flex items-center gap-3">
         {showBackButton && (
@@ -46,20 +46,21 @@ const Header = ({
             </svg>
           </button>
         )}
-
-        <div className="flex items-center gap-3">
-          <div className="rounded-full bg-black text-white w-9 h-9 flex items-center justify-center font-semibold text-sm font-inter">
-            EP
+        <Link to={"/"}>
+          <div className="flex items-center gap-3">
+            <div className="rounded-full bg-black text-white w-9 h-9 flex items-center justify-center font-semibold text-sm font-inter">
+              EP
+            </div>
+            <div className="flex flex-col">
+              <h1 className="text-sm font-bold tracking-wider font-playfair">
+                EPISODE
+              </h1>
+              <span className="text-xs text-[#C5A667] font-inter uppercase">
+                Tbilisi
+              </span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <h1 className="text-sm font-bold tracking-wider font-playfair">
-              EPISODE
-            </h1>
-            <span className="text-xs text-[#C5A667] font-inter uppercase">
-              Tbilisi
-            </span>
-          </div>
-        </div>
+        </Link>
       </div>
 
       <button
