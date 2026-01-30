@@ -1,4 +1,3 @@
-import LateCheckOut from "./main/LateCheckOut";
 import QuickAccess from "./main/QuickAccess";
 import RequestButton from "./main/RequestButton";
 import WelcomeSection from "./main/WelcomeSection";
@@ -11,8 +10,6 @@ const Main = () => {
       <RequestButton />
 
       <QuickAccess />
-
-      <LateCheckOut />
     </main>
   );
 };

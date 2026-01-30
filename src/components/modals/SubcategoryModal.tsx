@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { SubcategoryType } from "../../pages/CategoryDetails";
+import SubcategoryModalForm from "../SubcategoryModalForm";
 
 const SubcategoryModal = ({
   subcategory,
@@ -8,11 +9,42 @@ const SubcategoryModal = ({
   subcategory: SubcategoryType;
   onClose: () => void;
 }) => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantities, setQuantities] = useState<Record<number, number>>(() =>
+    Object.fromEntries(subcategory.options.map((opt) => [opt.id, 0])),
+  );
+
   const [instructions, setInstructions] = useState("");
 
-  const decrease = () => quantity > 1 && setQuantity(quantity - 1);
-  const increase = () => setQuantity(quantity + 1);
+  // Handlers
+
+  const decrease = (id: number) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: Math.max(0, prev[id] - 1),
+    }));
+  };
+
+  const increase = (id: number) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: prev[id] + 1,
+    }));
+  };
+
+  // On submit function
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const payload = {
+      subcategoryId: subcategory.id,
+      quantities,
+      instructions,
+    };
+
+    console.log(payload);
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -75,55 +107,15 @@ const SubcategoryModal = ({
         </div>
 
         {/* Form */}
-        <form className="p-6 space-y-6">
-          {/* Quantity */}
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-neutral-600">
-              Quantity
-            </span>
-
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={decrease}
-                className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-200 transition text-lg"
-              >
-                −
-              </button>
-
-              <span className="w-6 text-center font-semibold">{quantity}</span>
-
-              <button
-                type="button"
-                onClick={increase}
-                className="w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-200 transition text-lg"
-              >
-                +
-              </button>
-            </div>
-          </div>
-
-          {/* Special Instructions */}
-          <div className="space-y-2">
-            <label className="text-xs font-medium text-neutral-500 uppercase tracking-wider">
-              Special instructions
-            </label>
-            <textarea
-              value={instructions}
-              onChange={(e) => setInstructions(e.target.value)}
-              placeholder="Any notes for the staff?"
-              className="w-full min-h-22.5 rounded-xl bg-neutral-100 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-black/20"
-            />
-          </div>
-
-          {/* Confirm Button */}
-          <button
-            type="submit"
-            className="w-full rounded-xl bg-black text-white py-3 font-semibold hover:bg-neutral-900 transition"
-          >
-            Confirm Request
-          </button>
-        </form>
+        <SubcategoryModalForm
+          subcategory={subcategory}
+          onSubmit={onSubmit}
+          decrease={decrease}
+          increase={increase}
+          instructions={instructions}
+          setInstructions={setInstructions}
+          quantities={quantities}
+        />
       </div>
     </div>
   );
