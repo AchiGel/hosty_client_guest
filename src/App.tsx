@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -8,6 +9,17 @@ function App() {
       <div className="sticky top-0 z-50 bg-[#F6F7F9]">
         <Header />
       </div>
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: "white",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "black",
+          },
+        }}
+      />
       <Outlet />
       <Footer />
     </div>

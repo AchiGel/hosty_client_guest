@@ -89,5 +89,6 @@ export const AMENITIES = [
     title: "Laundry",
     AccessTime: "Same-day service",
     message: "Request laundry service from the menu.",
+    navigateTo: "/categories",
   },
 ];
