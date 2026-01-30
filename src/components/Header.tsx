@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import CartModal from "./modals/CartModal";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -8,6 +9,7 @@ const Header = () => {
 
   return (
     <header className="py-6 flex items-center justify-between border-b border-gray-300">
+      <CartModal />
       <div className="flex items-center gap-3">
         {showBackButton && (
           <button
@@ -55,31 +57,26 @@ const Header = () => {
       </div>
 
       <button
-        className="w-10 h-10 flex items-center justify-center hover:bg-gray-300 rounded-full transition-colors duration-300 ease-out cursor-pointer"
-        aria-label="User profile"
+        className="relative flex items-center gap-2 rounded-full border bg-background px-3 py-2 text-foreground shadow-sm border-gray-200"
+        aria-label="Cart"
       >
         <svg
+          xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="lucide lucide-shopping-bag h-4 w-4"
         >
-          <path
-            d="M19 21V19C19 17.9391 18.5786 16.9217 17.8284 16.1716C17.0783 15.4214 16.0609 15 15 15H9C7.93913 15 6.92172 15.4214 6.17157 16.1716C5.42143 16.9217 5 17.9391 5 19V21"
-            stroke="#111111"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
-            stroke="#111111"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+          <path d="M3 6h18"></path>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
+        <span className="text-xs font-semibold">Cart</span>
       </button>
     </header>
   );
