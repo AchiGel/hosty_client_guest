@@ -2,12 +2,14 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Toaster } from "react-hot-toast";
+import { useState } from "react";
 
 function App() {
+  const [cartOpen, setCartOpen] = useState(false);
   return (
     <div className="max-w-4xl mx-auto min-h-screen px-6 bg-[#F6F7F9]">
       <div className="sticky top-0 z-50 bg-[#F6F7F9]">
-        <Header />
+        <Header cartOpen={cartOpen} setCartOpen={setCartOpen} />
       </div>
       <Toaster
         position="bottom-center"

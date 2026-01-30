@@ -1,10 +1,23 @@
-const CartModal = () => {
+const CartModal = ({
+  setCartOpen,
+}: {
+  setCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div
+      onClick={() => setCartOpen(false)}
+      className="fixed inset-0 z-50 flex items-center justify-center"
+    >
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
-      <div className="relative bg-white rounded-2xl w-full max-w-84.5 mx-4 shadow-xl flex flex-col gap-4 overflow-hidden">
-        <button className="cursor-pointer absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity data-[state=open]:bg-accent data-[state=open]:text-muted-foreground hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative bg-white rounded-2xl w-full max-w-84.5 mx-4 shadow-xl flex flex-col gap-4 overflow-hidden"
+      >
+        <button
+          onClick={() => setCartOpen(false)}
+          className="cursor-pointer absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity data-[state=open]:bg-accent data-[state=open]:text-muted-foreground hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

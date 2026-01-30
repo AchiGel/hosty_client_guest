@@ -1,7 +1,13 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import CartModal from "./modals/CartModal";
 
-const Header = () => {
+const Header = ({
+  cartOpen,
+  setCartOpen,
+}: {
+  cartOpen: boolean;
+  setCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -9,7 +15,7 @@ const Header = () => {
 
   return (
     <header className="py-6 flex items-center justify-between border-b border-gray-300">
-      <CartModal />
+      {cartOpen && <CartModal setCartOpen={setCartOpen} />}
       <div className="flex items-center gap-3">
         {showBackButton && (
           <button
@@ -59,6 +65,7 @@ const Header = () => {
       <button
         className="relative flex items-center gap-2 rounded-full border bg-background px-3 py-2 text-foreground shadow-sm border-gray-200"
         aria-label="Cart"
+        onClick={() => setCartOpen(true)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
