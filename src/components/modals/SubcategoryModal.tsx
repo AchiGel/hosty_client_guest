@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { SubcategoryType } from "../../pages/CategoryDetails";
 import SubcategoryModalForm from "../SubcategoryModalForm";
+import { useCartStore } from "../../store/cartStore";
 
 const SubcategoryModal = ({
   subcategory,
@@ -11,40 +12,52 @@ const SubcategoryModal = ({
 }) => {
   // States
 
-  const [quantities, setQuantities] = useState<Record<number, number>>(() =>
-    Object.fromEntries(subcategory.options.map((opt) => [opt.id, 0])),
-  );
-
+  const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [instructions, setInstructions] = useState("");
-
+  const addItem = useCartStore((state) => state.addItem);
   // Handlers
-
-  const decrease = (id: number) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: Math.max(0, prev[id] - 1),
-    }));
-  };
 
   const increase = (id: number) => {
     setQuantities((prev) => ({
       ...prev,
-      [id]: prev[id] + 1,
+      [id]: (prev[id] || 0) + 1,
+    }));
+  };
+
+  const decrease = (id: number) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: Math.max((prev[id] || 0) - 1, 0),
     }));
   };
 
   // On submit function
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const payload = {
-      subcategoryId: subcategory.id,
-      quantities,
-      instructions,
-    };
+    Object.entries(quantities).forEach(([optionId, quantity]) => {
+      if (quantity > 0) {
+        const option = subcategory.options.find(
+          (opt) => opt.id === Number(optionId),
+        );
+        if (option) {
+          addItem(
+            {
+              id: `${subcategory.id}-${optionId}`,
+              name: option.label,
+              categoryName: subcategory.title,
+              instructions: instructions,
+            },
+            quantity,
+          );
+        }
+      }
+    });
 
-    console.log(payload);
+    setQuantities({});
+    setInstructions("");
+
     onClose();
   };
 
@@ -111,7 +124,7 @@ const SubcategoryModal = ({
         {/* Form */}
         <SubcategoryModalForm
           subcategory={subcategory}
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           decrease={decrease}
           increase={increase}
           instructions={instructions}
