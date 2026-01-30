@@ -1,3 +1,4 @@
+import Amenities from "./main/Amenities";
 import QuickAccess from "./main/QuickAccess";
 import RequestButton from "./main/RequestButton";
 import WelcomeSection from "./main/WelcomeSection";
@@ -10,6 +11,8 @@ const Main = () => {
       <RequestButton />
 
       <QuickAccess />
+
+      <Amenities />
     </main>
   );
 };

@@ -5,7 +5,7 @@ const RequestButton = () => {
     <section className="pb-6">
       <Link
         to={"/categories"}
-        className="hover:bg-black/90 transition-colors duration-300 ease-out group p-5 rounded-2xl bg-black flex items-center justify-between w-full max-w-73.75 font-inter cursor-pointer no-underline"
+        className="max-w-73.75 w-full flex items-center justify-between p-4 sm:p-5 bg-[#111111] rounded-2xl text-white group hover:bg-neutral-800 transition-colors shadow-[0_15px_40px_-10px_rgba(0,0,0,0.2)] px-5"
       >
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-4">

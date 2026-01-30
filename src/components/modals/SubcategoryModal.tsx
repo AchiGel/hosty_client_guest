@@ -9,6 +9,8 @@ const SubcategoryModal = ({
   subcategory: SubcategoryType;
   onClose: () => void;
 }) => {
+  // States
+
   const [quantities, setQuantities] = useState<Record<number, number>>(() =>
     Object.fromEntries(subcategory.options.map((opt) => [opt.id, 0])),
   );
