@@ -1,3 +1,7 @@
+import WifiModalClose from "../../assets/WifiModalClose";
+import WifiModalCopy from "../../assets/WifiModalCopy";
+import WifiModalIcon from "../../assets/WifiModalIcon";
+
 const WifiModal = ({
   setActiveModal,
 }: {
@@ -20,39 +24,11 @@ const WifiModal = ({
           onClick={() => setActiveModal(null)}
           className="cursor-pointer absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity data-[state=open]:bg-accent data-[state=open]:text-muted-foreground hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
+          <WifiModalClose />
         </button>
         <div className="bg-linear-to-br from-[#111111] to-neutral-800 p-6 text-white flex flex-col items-center">
           <div className="p-4 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 20h.01"></path>
-              <path d="M2 8.82a15 15 0 0 1 20 0"></path>
-              <path d="M5 12.859a10 10 0 0 1 14 0"></path>
-              <path d="M8.5 16.429a5 5 0 0 1 7 0"></path>
-            </svg>
+            <WifiModalIcon />
           </div>
           <h2 className="font-playfair tracking-tight text-white text-xl font-bold">
             Wi-Fi Connection
@@ -76,20 +52,7 @@ const WifiModal = ({
                 Episode2024Guest
               </div>
               <button className="cursor-pointer p-3 rounded-xl bg-[#C6A667] text-white hover:bg-[#b8995c] transition-colors">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-                </svg>
+                <WifiModalCopy />
               </button>
             </div>
           </div>

@@ -2,6 +2,8 @@ import { useState } from "react";
 import type { SubcategoryType } from "../../pages/CategoryDetails";
 import SubcategoryModalForm from "../SubcategoryModalForm";
 import { useCartStore } from "../../store/cartStore";
+import SubcategoryBed from "../../assets/SubcategoryBed";
+import SubcategoryClose from "../../assets/SubcategoryClose";
 
 const SubcategoryModal = ({
   subcategory,
@@ -75,22 +77,7 @@ const SubcategoryModal = ({
         <div className="px-5 sm:px-6 py-4 sm:py-5 border-b border-neutral-100 flex items-center justify-between bg-linear-to-r from-white to-neutral-50">
           <div className="flex items-center gap-3">
             <div className="bg-[#C6A667]/10 p-2 rounded-lg text-[#C6A667]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M2 4v16"></path>
-                <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-                <path d="M2 17h20"></path>
-                <path d="M6 8v9"></path>
-              </svg>
+              <SubcategoryBed />
             </div>
             <div>
               <h3 className="text-[#111111] font-bold text-base sm:text-lg leading-tight font-playfair">
@@ -104,20 +91,7 @@ const SubcategoryModal = ({
             onClick={onClose}
             className="text-neutral-400 hover:text-[#111111] transition-colors p-1 rounded-md hover:bg-neutral-100"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M18 6 6 18"></path>
-              <path d="m6 6 12 12"></path>
-            </svg>
+            <SubcategoryClose />
           </button>
         </div>
 

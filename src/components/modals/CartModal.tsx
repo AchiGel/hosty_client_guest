@@ -1,3 +1,6 @@
+import CartModalClose from "../../assets/CartModalClose";
+import CartModalRequest from "../../assets/CartModalRequest";
+import CartModalSend from "../../assets/CartModalSend";
 import { useCartStore } from "../../store/cartStore";
 import CartModalItemCard from "../CartModalItemCard";
 
@@ -10,7 +13,6 @@ const CartModal = ({
   const removeItem = useCartStore((state) => state.removeItem);
   const updateQuantity = useCartStore((state) => state.updateQuantity);
   const clearCart = useCartStore((state) => state.clearCart);
-  const totalItems = useCartStore((state) => state.totalItems());
 
   const handleSendAll = () => {
     console.log("Sending all items:", items);
@@ -33,43 +35,14 @@ const CartModal = ({
           onClick={() => setCartOpen(false)}
           className="cursor-pointer absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none z-10"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-x h-4 w-4"
-          >
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
+          <CartModalClose />
         </button>
 
         <div className="bg-gray-50 flex flex-col">
           <div className="flex flex-col space-y-1.5 text-center sm:text-left p-6">
             <h2 className="text-lg font-semibold leading-none tracking-tight flex items-center gap-2 font-playfair">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-shopping-bag h-5 w-5"
-              >
-                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-                <path d="M3 6h18"></path>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
-              Your requests {totalItems > 0 && `(${totalItems})`}
+              <CartModalRequest />
+              Your requests
             </h2>
 
             <div className="flex-1 flex flex-col min-h-0 mt-4">
@@ -104,21 +77,7 @@ const CartModal = ({
                     disabled={items.length === 0}
                     className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-[#182543] text-[#eee8dd] hover:bg-[#18254391] shadow-sm hover:shadow-md h-10 px-4 py-2"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-send mr-2 h-4 w-4"
-                    >
-                      <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
-                      <path d="m21.854 2.147-10.94 10.939"></path>
-                    </svg>
+                    <CartModalSend />
                     Send all
                   </button>
                 </div>

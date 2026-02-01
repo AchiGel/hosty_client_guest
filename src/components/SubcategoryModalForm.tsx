@@ -1,3 +1,4 @@
+import Arrow from "../assets/Arrow";
 import type { SubcategoryType } from "../pages/CategoryDetails";
 
 type Props = {
@@ -84,21 +85,7 @@ const SubcategoryModalForm = ({
           className="w-full py-3 sm:py-3.5 px-4 bg-[#111111] hover:bg-black text-white font-medium rounded-xl shadow-lg shadow-neutral-200 hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
         >
           <span>Confirm Request</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-arrow-up-right w-4 h-4 text-[#C6A667] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-          >
-            <path d="M7 7h10v10"></path>
-            <path d="M7 17 17 7"></path>
-          </svg>
+          <Arrow />
         </button>
         <p className="text-center text-xs text-neutral-400 mt-3">
           Estimated delivery time:

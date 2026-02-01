@@ -1,5 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import CartModal from "./modals/CartModal";
+import HeaderBackIcon from "../assets/HeaderBackIcon";
+import CartIcon from "../assets/CartIcon";
 
 const Header = ({
   cartOpen,
@@ -22,28 +24,7 @@ const Header = ({
             onClick={() => navigate(-1)}
             className="cursor-pointer w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-300 transition-colors duration-300 ease-out rotate-225"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 7H17V17"
-                stroke="#000"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M7 17L17 7"
-                stroke="#000"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <HeaderBackIcon />
           </button>
         )}
         <Link to={"/"}>
@@ -68,22 +49,7 @@ const Header = ({
         aria-label="Cart"
         onClick={() => setCartOpen(true)}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="lucide lucide-shopping-bag h-4 w-4"
-        >
-          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-          <path d="M3 6h18"></path>
-          <path d="M16 10a4 4 0 0 1-8 0"></path>
-        </svg>
+        <CartIcon />
         <span className="text-xs font-semibold">Cart</span>
       </button>
     </header>
