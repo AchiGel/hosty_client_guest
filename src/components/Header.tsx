@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import CartModal from "./modals/CartModal";
 import HeaderBackIcon from "../assets/HeaderBackIcon";
 import CartIcon from "../assets/CartIcon";
+import { useCartStore } from "../store/cartStore";
 
 const Header = ({
   cartOpen,
@@ -14,6 +15,10 @@ const Header = ({
   const location = useLocation();
 
   const showBackButton = location.pathname !== "/";
+
+  const totalItems = useCartStore((state) => state.totalItems());
+
+  console.log(totalItems);
 
   return (
     <header className="py-4 sm:py-6 flex items-center justify-between border-b border-gray-300">
@@ -51,6 +56,11 @@ const Header = ({
       >
         <CartIcon />
         <span className="text-xs font-semibold">Cart</span>
+        {totalItems > 0 && (
+          <span className="ml-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#182543] px-1 text-[10px] font-bold text-[#eee8dd]">
+            {totalItems}
+          </span>
+        )}
       </button>
     </header>
   );

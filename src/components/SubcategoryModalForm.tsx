@@ -1,4 +1,3 @@
-import Arrow from "../assets/Arrow";
 import type { SubcategoryType } from "../pages/CategoryDetails";
 
 type Props = {
@@ -9,6 +8,7 @@ type Props = {
   instructions: string;
   setInstructions: React.Dispatch<React.SetStateAction<string>>;
   quantities: Record<number, number>;
+  setFormIsSent: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const SubcategoryModalForm = ({
@@ -19,9 +19,22 @@ const SubcategoryModalForm = ({
   instructions,
   setInstructions,
   quantities,
+  setFormIsSent,
 }: Props) => {
+  const SPECIAL_TIME = [
+    { id: 1, time: "Now", timeLabel: "10-15 min" },
+    { id: 2, time: "30 min", timeLabel: "Half hour" },
+    { id: 3, time: "1 hour", timeLabel: "Later" },
+    { id: 4, time: "Custom", timeLabel: "Set time" },
+  ];
+
   return (
-    <form onSubmit={(e) => onSubmit(e)}>
+    <form
+      onSubmit={(e) => {
+        onSubmit(e);
+        setFormIsSent(true);
+      }}
+    >
       <div className="p-5 sm:p-6 flex flex-col gap-5 sm:gap-6 bg-white max-h-[60vh] overflow-y-auto">
         {/* Quantity */}
         <div className="space-y-4">
@@ -64,6 +77,26 @@ const SubcategoryModalForm = ({
           ))}
         </div>
         <hr className="border-neutral-100" />
+        {/* Special Time */}
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-[#111111]">
+            When do you need it?
+          </label>
+          <div className="grid grid-cols-2 gap-2 mt-2">
+            {SPECIAL_TIME.map((st) => (
+              <button
+                key={st.id}
+                className="flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all border-[#C6A667] bg-[#C6A667]/10 text-[#111111]"
+              >
+                <span className="font-semibold text-sm">{st.time}</span>
+                <span className="text-[10px] text-neutral-400">
+                  {st.timeLabel}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <hr className="border-neutral-100" />
         {/* Special Instructions */}
         <div className="space-y-2">
           <label className="text-sm font-semibold text-[#111111]">
@@ -82,13 +115,27 @@ const SubcategoryModalForm = ({
       <div className="p-5 sm:p-6 pt-2 bg-white">
         <button
           type="submit"
-          className="w-full py-3 sm:py-3.5 px-4 bg-[#111111] hover:bg-black text-white font-medium rounded-xl shadow-lg shadow-neutral-200 hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
+          className="w-full py-3.5 sm:py-4 px-4 bg-[#C6A667] hover:brightness-95 text-[#111111] font-semibold rounded-xl shadow-lg shadow-neutral-200 hover:shadow-xl transition-all flex items-center justify-center gap-2"
         >
-          <span>Confirm Request</span>
-          <Arrow />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            className="lucide lucide-send w-5 h-5"
+          >
+            <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
+            <path d="m21.854 2.147-10.94 10.939"></path>
+          </svg>
+          <span>Send Request</span>
         </button>
         <p className="text-center text-xs text-neutral-400 mt-3">
-          Estimated delivery time:
+          Delivery:
           <span className="text-[#C6A667] font-medium"> 10-15 minutes</span>
         </p>
       </div>

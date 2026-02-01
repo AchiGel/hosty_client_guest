@@ -4,6 +4,7 @@ import SubcategoryModalForm from "../SubcategoryModalForm";
 import { useCartStore } from "../../store/cartStore";
 import SubcategoryBed from "../../assets/SubcategoryBed";
 import SubcategoryClose from "../../assets/SubcategoryClose";
+import ConfirmationModal from "./ConfirmationModal";
 
 const SubcategoryModal = ({
   subcategory,
@@ -17,6 +18,7 @@ const SubcategoryModal = ({
   const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [instructions, setInstructions] = useState("");
   const addItem = useCartStore((state) => state.addItem);
+  const [formIsSent, setFormIsSent] = useState(false);
   // Handlers
 
   const increase = (id: number) => {
@@ -57,10 +59,10 @@ const SubcategoryModal = ({
       }
     });
 
-    setQuantities({});
-    setInstructions("");
+    // setQuantities({});
+    // setInstructions("");
 
-    onClose();
+    // onClose();
   };
 
   return (
@@ -104,8 +106,12 @@ const SubcategoryModal = ({
           instructions={instructions}
           setInstructions={setInstructions}
           quantities={quantities}
+          setFormIsSent={setFormIsSent}
         />
       </div>
+      {formIsSent && (
+        <ConfirmationModal setFormIsSent={setFormIsSent} onClose={onClose} />
+      )}
     </div>
   );
 };
