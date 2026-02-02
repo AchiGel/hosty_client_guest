@@ -1,3 +1,4 @@
+import SubcategoryModalSend from "../assets/SubcategoryModalSend";
 import type { SubcategoryType } from "../pages/CategoryDetails";
 
 type Props = {
@@ -117,21 +118,7 @@ const SubcategoryModalForm = ({
           type="submit"
           className="cursor-pointer w-full py-3.5 sm:py-4 px-4 bg-[#C6A667] hover:brightness-95 text-[#111111] font-semibold rounded-xl shadow-lg shadow-neutral-200 hover:shadow-xl transition-all flex items-center justify-center gap-2"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className="lucide lucide-send w-5 h-5"
-          >
-            <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
-            <path d="m21.854 2.147-10.94 10.939"></path>
-          </svg>
+          <SubcategoryModalSend />
           <span>Send Request</span>
         </button>
         <p className="text-center text-xs text-neutral-400 mt-3">

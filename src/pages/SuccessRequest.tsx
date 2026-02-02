@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PROGRESS } from "../constants/progress";
 import { useCartStore, type CartItem } from "../store/cartStore";
+import SuccessRequestIcon from "../assets/SuccessRequestIcon";
 
 const SuccessRequest = () => {
   const items = useCartStore<CartItem[]>((state) => state.items);
@@ -8,20 +9,7 @@ const SuccessRequest = () => {
   return (
     <div className="flex-1 flex flex-col items-center justify-center text-center">
       <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mb-6 animate-in fade-in zoom-in duration-500">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          className="lucide lucide-check w-10 h-10 text-green-500"
-        >
-          <path d="M20 6 9 17l-5-5"></path>
-        </svg>
+        <SuccessRequestIcon />
       </div>
       <h2 className="font-playfair text-2xl font-semibold text-[#111111] mb-2">
         Request Received

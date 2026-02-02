@@ -19,8 +19,6 @@ const Header = ({
 
   const totalItems = useCartStore((state) => state.totalItems());
 
-  console.log(totalItems);
-
   return (
     <header className="py-4 sm:py-6 flex items-center justify-between border-b border-gray-300">
       {cartOpen && <CartModal setCartOpen={setCartOpen} />}
