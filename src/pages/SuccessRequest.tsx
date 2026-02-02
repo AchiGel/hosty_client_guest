@@ -1,0 +1,90 @@
+import { Link } from "react-router-dom";
+import { PROGRESS } from "../constants/progress";
+import { useCartStore } from "../store/cartStore";
+import SuccessRequestIcon from "../assets/SuccessRequestIcon";
+import { useEffect } from "react";
+
+const SuccessRequest = () => {
+  const { lastOrder, clearLastOrder } = useCartStore();
+
+  useEffect(() => {
+    return () => {
+      clearLastOrder();
+    };
+  }, []);
+
+  return (
+    <div className="flex-1 flex flex-col items-center justify-center text-center">
+      <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mb-6 animate-in fade-in zoom-in duration-500">
+        <SuccessRequestIcon />
+      </div>
+      <h2 className="font-playfair text-2xl font-semibold text-[#111111] mb-2">
+        Request Received
+      </h2>
+      <p className="text-neutral-500 mb-6">
+        Our team has been notified and will assist you shortly.
+      </p>
+      <div className="w-full max-w-sm p-4 rounded-2xl bg-white border border-neutral-100 mb-6 shadow-sm">
+        <p className="font-semibold text-[#111111] mb-2">Your request batch</p>
+        <div className="space-y-1">
+          {lastOrder &&
+            lastOrder.map((item) => (
+              <div
+                key={item.id}
+                className="flex items-center justify-between text-sm"
+              >
+                <span className="text-neutral-600 truncate pr-2">
+                  {item.name}
+                </span>
+                <span className="font-semibold text-[#111111]">
+                  ×{item.quantity}
+                </span>
+              </div>
+            ))}
+        </div>
+      </div>
+      <div className="w-full max-w-sm">
+        <p className="text-xs text-neutral-400 mb-4 uppercase tracking-widest font-medium">
+          Track Progress
+        </p>
+        <div className="flex items-center justify-between">
+          {PROGRESS.map((pr) => (
+            <div
+              key={pr.id}
+              className="flex items-center flex-1 last:flex-none"
+            >
+              <div className="flex flex-col items-center">
+                <div
+                  className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-300
+    ${
+      pr.active
+        ? "bg-[#c9a65e] border-[#c9a65e] text-[#10192d] animate-pulse-gentle"
+        : "bg-[#e8eaee] border-[#dcdfe5] text-[#676f7e]"
+    }
+  `}
+                >
+                  {pr.icon}
+                </div>
+                <span
+                  className={`text-xs mt-2 font-medium ${
+                    pr.active ? "text-[#c9a65e]" : "text-[#676f7e]"
+                  }`}
+                >
+                  {pr.title}
+                </span>
+              </div>
+              <div className="flex-1 h-0.5 mx-2 transition-colors duration-300 bg-[#dcdfe5]" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <Link to={"/"}>
+        <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-[#f6f7f9] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-[#dcdfe5] bg-[#f6f7f9] hover:bg-[#c9a65e] hover:text-[#0f1729] h-10 px-4 py-2 mt-8 rounded-xl">
+          Return to Home
+        </button>
+      </Link>
+    </div>
+  );
+};
+
+export default SuccessRequest;

@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
+import { useState } from "react";
+import Header from "./components/Header";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [cartOpen, setCartOpen] = useState(false);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="px-4 max-w-4xl mx-auto min-h-screen sm:px-6 bg-[#F6F7F9]">
+      <div className="sticky top-0 z-50 bg-[#F6F7F9]">
+        <Header cartOpen={cartOpen} setCartOpen={setCartOpen} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: "white",
+            fontSize: "13px",
+            fontWeight: 600,
+            color: "black",
+          },
+        }}
+      />
+      <Outlet />
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
