@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SubcategoryModalSend from "../assets/SubcategoryModalSend";
 import type { SubcategoryType } from "../pages/CategoryDetails";
 
@@ -26,6 +27,8 @@ const SubcategoryModalForm = ({
     { id: 3, time: "1 hour", timeLabel: "Later" },
     { id: 4, time: "Custom", timeLabel: "Set time" },
   ];
+
+  const [activeButtonId, setActiveButtonId] = useState<number | null>(1);
 
   return (
     <form
@@ -80,20 +83,47 @@ const SubcategoryModalForm = ({
           <label className="text-sm font-semibold text-[#111111]">
             When do you need it?
           </label>
+
           <div className="grid grid-cols-2 gap-2 mt-2">
-            {SPECIAL_TIME.map((st) => (
-              <button
-                key={st.id}
-                className="cursor-pointer flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all border-[#C6A667] bg-[#C6A667]/10 text-[#111111]"
-              >
-                <span className="font-semibold text-sm">{st.time}</span>
-                <span className="text-[10px] text-neutral-400">
-                  {st.timeLabel}
-                </span>
-              </button>
-            ))}
+            {SPECIAL_TIME.map((st) => {
+              const isActive = activeButtonId === st.id;
+
+              return (
+                <button
+                  type="button"
+                  key={st.id}
+                  onClick={() => setActiveButtonId(st.id)}
+                  className={`cursor-pointer flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all
+            ${
+              isActive
+                ? "border-[#c6a667] bg-[#c6a6671a]"
+                : "border-[#e5e5e5] bg-[#fafafa] text-neutral-600"
+            }
+          `}
+                >
+                  <span className="font-semibold text-sm">{st.time}</span>
+                  <span className="text-[10px] text-neutral-400">
+                    {st.timeLabel}
+                  </span>
+                </button>
+              );
+            })}
           </div>
+          {activeButtonId === 4 && (
+            <div className="flex items-center gap-2 mt-3 p-3 rounded-xl bg-neutral-50 border border-neutral-200">
+              <span className="text-sm text-neutral-600">In</span>
+              <input
+                type="number"
+                min={1}
+                max={24}
+                placeholder="3"
+                className="w-16 h-9 rounded-lg border border-neutral-300 bg-white px-3 text-center text-sm font-semibold text-[#111111] focus:border-[#C6A667] focus:ring-1 focus:ring-[#C6A667] outline-none"
+              />
+              <span className="text-sm text-neutral-600">hours</span>
+            </div>
+          )}
         </div>
+
         <hr className="border-neutral-100" />
         {/* Special Instructions */}
         <div className="space-y-2">
