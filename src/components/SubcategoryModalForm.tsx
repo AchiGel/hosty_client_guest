@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SubcategoryModalSend from "../assets/SubcategoryModalSend";
 import type { SubcategoryType } from "../pages/CategoryDetails";
+import SpecialTimeButton from "./SpecialTimeButton";
+import { SPECIAL_TIME } from "../constants/specialTime";
 
 type Props = {
   subcategory: SubcategoryType;
@@ -21,13 +23,6 @@ const SubcategoryModalForm = ({
   setInstructions,
   quantities,
 }: Props) => {
-  const SPECIAL_TIME = [
-    { id: 1, time: "Now", timeLabel: "10-15 min" },
-    { id: 2, time: "30 min", timeLabel: "Half hour" },
-    { id: 3, time: "1 hour", timeLabel: "Later" },
-    { id: 4, time: "Custom", timeLabel: "Set time" },
-  ];
-
   const [activeButtonId, setActiveButtonId] = useState<number | null>(1);
 
   return (
@@ -85,29 +80,16 @@ const SubcategoryModalForm = ({
           </label>
 
           <div className="grid grid-cols-2 gap-2 mt-2">
-            {SPECIAL_TIME.map((st) => {
-              const isActive = activeButtonId === st.id;
-
-              return (
-                <button
-                  type="button"
-                  key={st.id}
-                  onClick={() => setActiveButtonId(st.id)}
-                  className={`cursor-pointer flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all
-            ${
-              isActive
-                ? "border-[#c6a667] bg-[#c6a6671a]"
-                : "border-[#e5e5e5] bg-[#fafafa] text-neutral-600"
-            }
-          `}
-                >
-                  <span className="font-semibold text-sm">{st.time}</span>
-                  <span className="text-[10px] text-neutral-400">
-                    {st.timeLabel}
-                  </span>
-                </button>
-              );
-            })}
+            {SPECIAL_TIME.map((st) => (
+              <SpecialTimeButton
+                key={st.id}
+                activeButtonId={activeButtonId}
+                time={st.time}
+                timeLabel={st.timeLabel}
+                id={st.id}
+                setActiveButtonId={setActiveButtonId}
+              />
+            ))}
           </div>
           {activeButtonId === 4 && (
             <div className="flex items-center gap-2 mt-3 p-3 rounded-xl bg-neutral-50 border border-neutral-200">
