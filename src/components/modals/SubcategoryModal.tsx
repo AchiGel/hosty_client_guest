@@ -63,7 +63,7 @@ const SubcategoryModal = ({
         if (option) {
           addItem(
             {
-              id: `${subcategory.id}-${optionId}`,
+              id: `${subcategory.title}-${subcategory.id}-${optionId}`,
               name: option.label,
               categoryName: subcategory.title,
               instructions,
