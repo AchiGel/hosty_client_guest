@@ -1,0 +1,196 @@
+const MenuIcon = () => {
+  return (
+    <svg
+      width="26"
+      height="27"
+      viewBox="0 0 26 27"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_d_5_2241)">
+        <path
+          d="M16.2588 1.66669L14.3421 3.58335C13.884 4.05068 13.6274 4.67897 13.6274 5.33335C13.6274 5.98774 13.884 6.61603 14.3421 7.08335L15.8421 8.58335C16.3094 9.04142 16.9377 9.298 17.5921 9.298C18.2465 9.298 18.8748 9.04142 19.3421 8.58335L21.2588 6.66669"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          shapeRendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#filter1_d_5_2241)">
+        <path
+          d="M15.4255 12.5L5.67551 2.75C5.34291 3.07588 5.07868 3.46485 4.8983 3.89413C4.71791 4.3234 4.625 4.78436 4.625 5.25C4.625 5.71564 4.71791 6.1766 4.8983 6.60587C5.07868 7.03515 5.34291 7.42412 5.67551 7.75L11.7588 13.8333C12.3422 14.4167 13.4255 14.4167 14.0922 13.8333L15.4255 12.5ZM15.4255 12.5L21.2588 18.3333"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          shapeRendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#filter2_d_5_2241)">
+        <path
+          d="M4.67554 18.1667L10.0089 12.9167"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          shapeRendering="crispEdges"
+        />
+      </g>
+      <g filter="url(#filter3_d_5_2241)">
+        <path
+          d="M18.7589 4.16669L12.9255 10"
+          stroke="currentColor"
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          shapeRendering="crispEdges"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_d_5_2241"
+          x="9.00244"
+          y="1.04169"
+          width="16.8813"
+          height="16.8813"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="4" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_5_2241"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_5_2241"
+            result="shape"
+          />
+        </filter>
+        <filter
+          id="filter1_d_5_2241"
+          x="0"
+          y="2.125"
+          width="25.8838"
+          height="24.8333"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="4" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_5_2241"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_5_2241"
+            result="shape"
+          />
+        </filter>
+        <filter
+          id="filter2_d_5_2241"
+          x="0.0505371"
+          y="12.2917"
+          width="14.5833"
+          height="14.5"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="4" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_5_2241"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_5_2241"
+            result="shape"
+          />
+        </filter>
+        <filter
+          id="filter3_d_5_2241"
+          x="8.30054"
+          y="3.54169"
+          width="15.0833"
+          height="15.0833"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="4" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_5_2241"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_5_2241"
+            result="shape"
+          />
+        </filter>
+      </defs>
+    </svg>
+  );
+};
+
+export default MenuIcon;
