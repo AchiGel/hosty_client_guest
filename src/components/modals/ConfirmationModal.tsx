@@ -41,7 +41,10 @@ const ConfirmationModal = ({
         <div className="p-4 bg-white border-t border-neutral-100">
           <div className="flex flex-col gap-2">
             <button
-              onClick={() => setFormIsSent(false)}
+              onClick={() => {
+                setFormIsSent(false);
+                onClose();
+              }}
               className="cursor-pointer whitespace-nowrap text-sm ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-sm hover:shadow-md h-10 px-4 w-full py-3.5 bg-[#111111] hover:bg-black text-white font-medium rounded-xl flex items-center justify-center gap-2"
             >
               <svg

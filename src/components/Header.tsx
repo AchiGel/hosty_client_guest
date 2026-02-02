@@ -14,7 +14,8 @@ const Header = ({
   const navigate = useNavigate();
   const location = useLocation();
 
-  const showBackButton = location.pathname !== "/";
+  const showBackButton =
+    location.pathname !== "/" && location.pathname !== "/success";
 
   const totalItems = useCartStore((state) => state.totalItems());
 
