@@ -91,7 +91,7 @@ const SubcategoryModal = ({
 
           <button
             onClick={onClose}
-            className="text-neutral-400 hover:text-[#111111] transition-colors p-1 rounded-md hover:bg-neutral-100"
+            className="cursor-pointer text-neutral-400 hover:text-[#111111] transition-colors p-1 rounded-md hover:bg-neutral-100"
           >
             <SubcategoryClose />
           </button>

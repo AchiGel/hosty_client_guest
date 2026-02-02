@@ -21,7 +21,7 @@ const CartModalItemCard = ({
         </div>
         <button
           onClick={() => removeItem(item.id)}
-          className="rounded-md p-2 text-[#676f7e] hover:bg-muted hover:text-foreground"
+          className="cursor-pointer rounded-md p-2 text-[#676f7e] hover:bg-muted hover:text-foreground"
         >
           <CartModalItemRemove />
         </button>
@@ -34,7 +34,7 @@ const CartModalItemCard = ({
       <div className="mt-3 flex items-center justify-between">
         <div className="flex items-center gap-2 rounded-lg bg-[#e8eaee] p-1">
           <button
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#f6f7f9] text-[#0f1729] shadow-sm"
+            className="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#f6f7f9] text-[#0f1729] shadow-sm"
             onClick={() => updateQuantity(item.id, item.quantity - 1)}
           >
             -
@@ -43,7 +43,7 @@ const CartModalItemCard = ({
             {item.quantity}
           </span>
           <button
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#f6f7f9] text-[#0f1729] shadow-sm"
+            className="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#f6f7f9] text-[#0f1729] shadow-sm"
             onClick={() => updateQuantity(item.id, item.quantity + 1)}
           >
             +
@@ -51,7 +51,7 @@ const CartModalItemCard = ({
         </div>
         <button
           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-          className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3"
+          className="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3"
         >
           Remove
         </button>

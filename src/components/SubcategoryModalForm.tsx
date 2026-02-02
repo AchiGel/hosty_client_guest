@@ -56,7 +56,7 @@ const SubcategoryModalForm = ({
                 <button
                   type="button"
                   onClick={() => decrease(option.id)}
-                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-md bg-white shadow-sm text-neutral-600 hover:text-[#C6A667] hover:shadow disabled:opacity-50 transition-all"
+                  className="cursor-pointer w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-md bg-white shadow-sm text-neutral-600 hover:text-[#C6A667] hover:shadow disabled:opacity-50 transition-all"
                 >
                   −
                 </button>
@@ -68,7 +68,7 @@ const SubcategoryModalForm = ({
                 <button
                   type="button"
                   onClick={() => increase(option.id)}
-                  className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-md bg-white shadow-sm text-neutral-600 hover:text-[#C6A667] hover:shadow transition-all"
+                  className="cursor-pointer w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center rounded-md bg-white shadow-sm text-neutral-600 hover:text-[#C6A667] hover:shadow transition-all"
                 >
                   +
                 </button>
@@ -86,7 +86,7 @@ const SubcategoryModalForm = ({
             {SPECIAL_TIME.map((st) => (
               <button
                 key={st.id}
-                className="flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all border-[#C6A667] bg-[#C6A667]/10 text-[#111111]"
+                className="cursor-pointer flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all border-[#C6A667] bg-[#C6A667]/10 text-[#111111]"
               >
                 <span className="font-semibold text-sm">{st.time}</span>
                 <span className="text-[10px] text-neutral-400">
@@ -115,7 +115,7 @@ const SubcategoryModalForm = ({
       <div className="p-5 sm:p-6 pt-2 bg-white">
         <button
           type="submit"
-          className="w-full py-3.5 sm:py-4 px-4 bg-[#C6A667] hover:brightness-95 text-[#111111] font-semibold rounded-xl shadow-lg shadow-neutral-200 hover:shadow-xl transition-all flex items-center justify-center gap-2"
+          className="cursor-pointer w-full py-3.5 sm:py-4 px-4 bg-[#C6A667] hover:brightness-95 text-[#111111] font-semibold rounded-xl shadow-lg shadow-neutral-200 hover:shadow-xl transition-all flex items-center justify-center gap-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

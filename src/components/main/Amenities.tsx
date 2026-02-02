@@ -25,7 +25,7 @@ const Amenities = () => {
               }
             }}
             key={amenity.id}
-            className="w-full p-4 rounded-xl bg-white border border-neutral-100 flex flex-col gap-2 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group active:scale-95"
+            className="cursor-pointer w-full p-4 rounded-xl bg-white border border-neutral-100 flex flex-col gap-2 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group active:scale-95"
           >
             <span className="text-[#C6A667] group-hover:scale-110 transition-transform">
               {amenity.icon}
