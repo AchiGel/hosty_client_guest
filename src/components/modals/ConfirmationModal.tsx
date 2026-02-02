@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const ConfirmationModal = ({
   onClose,
   setFormIsSent,
@@ -5,6 +7,7 @@ const ConfirmationModal = ({
   onClose: () => void;
   setFormIsSent: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const navigate = useNavigate();
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
@@ -68,6 +71,7 @@ const ConfirmationModal = ({
               onClick={() => {
                 setFormIsSent(false);
                 onClose();
+                navigate("/success");
               }}
               className="cursor-pointer whitespace-nowrap text-sm ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border-input hover:bg-accent hover:text-accent-foreground h-10 px-4 sm:mt-0 w-full py-3.5 bg-[#C6A667] hover:brightness-95 text-[#111111] font-medium rounded-xl border-0 flex items-center justify-center gap-2 mt-0"
             >
