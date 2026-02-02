@@ -9,7 +9,6 @@ type Props = {
   instructions: string;
   setInstructions: React.Dispatch<React.SetStateAction<string>>;
   quantities: Record<number, number>;
-  setFormIsSent: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const SubcategoryModalForm = ({
@@ -20,7 +19,6 @@ const SubcategoryModalForm = ({
   instructions,
   setInstructions,
   quantities,
-  setFormIsSent,
 }: Props) => {
   const SPECIAL_TIME = [
     { id: 1, time: "Now", timeLabel: "10-15 min" },
@@ -33,7 +31,6 @@ const SubcategoryModalForm = ({
     <form
       onSubmit={(e) => {
         onSubmit(e);
-        setFormIsSent(true);
       }}
     >
       <div className="p-5 sm:p-6 flex flex-col gap-5 sm:gap-6 bg-white max-h-[60vh] overflow-y-auto">

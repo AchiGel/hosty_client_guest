@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import { PROGRESS } from "../constants/progress";
-import { useCartStore, type CartItem } from "../store/cartStore";
+import { useCartStore } from "../store/cartStore";
 import SuccessRequestIcon from "../assets/SuccessRequestIcon";
+import { useEffect } from "react";
 
 const SuccessRequest = () => {
-  const items = useCartStore<CartItem[]>((state) => state.items);
+  const { lastOrder, clearLastOrder } = useCartStore();
+
+  useEffect(() => {
+    return () => {
+      clearLastOrder();
+    };
+  }, []);
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center text-center">
@@ -20,19 +27,20 @@ const SuccessRequest = () => {
       <div className="w-full max-w-sm p-4 rounded-2xl bg-white border border-neutral-100 mb-6 shadow-sm">
         <p className="font-semibold text-[#111111] mb-2">Your request batch</p>
         <div className="space-y-1">
-          {items.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-center justify-between text-sm"
-            >
-              <span className="text-neutral-600 truncate pr-2">
-                {item.name}
-              </span>
-              <span className="font-semibold text-[#111111]">
-                ×{item.quantity}
-              </span>
-            </div>
-          ))}
+          {lastOrder &&
+            lastOrder.map((item) => (
+              <div
+                key={item.id}
+                className="flex items-center justify-between text-sm"
+              >
+                <span className="text-neutral-600 truncate pr-2">
+                  {item.name}
+                </span>
+                <span className="font-semibold text-[#111111]">
+                  ×{item.quantity}
+                </span>
+              </div>
+            ))}
         </div>
       </div>
       <div className="w-full max-w-sm">

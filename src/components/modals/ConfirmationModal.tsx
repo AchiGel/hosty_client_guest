@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 import ConfirmationModalIcon from "../../assets/ConfirmationModalIcon";
 import ConfirmationModalAddMore from "../../assets/ConfirmationModalAddMore";
 import ConfirmationModalSendNow from "../../assets/ConfirmationModalSendNow";
+import { useCartStore } from "../../store/cartStore";
+import toast from "react-hot-toast";
+import AmenitiesToastIcon from "../../assets/AmenitiesToastIcon";
 
 const ConfirmationModal = ({
   onClose,
@@ -10,6 +13,7 @@ const ConfirmationModal = ({
   onClose: () => void;
   setFormIsSent: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const { items, setLastOrder, clearCart } = useCartStore();
   const navigate = useNavigate();
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -36,6 +40,7 @@ const ConfirmationModal = ({
               onClick={() => {
                 setFormIsSent(false);
                 onClose();
+                navigate("/categories");
               }}
               className="cursor-pointer whitespace-nowrap text-sm ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-sm hover:shadow-md h-10 px-4 w-full py-3.5 bg-[#111111] hover:bg-black text-white font-medium rounded-xl flex items-center justify-center gap-2"
             >
@@ -44,7 +49,12 @@ const ConfirmationModal = ({
             </button>
             <button
               onClick={() => {
+                setLastOrder(items);
                 setFormIsSent(false);
+                clearCart();
+                toast("Request sent successfully", {
+                  icon: <AmenitiesToastIcon />,
+                });
                 onClose();
                 navigate("/success");
               }}

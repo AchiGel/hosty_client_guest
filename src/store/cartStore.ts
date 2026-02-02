@@ -12,10 +12,16 @@ export interface CartItem {
 
 interface CartStore {
   items: CartItem[];
+  lastOrder: CartItem[] | null;
+
   addItem: (item: Omit<CartItem, "quantity">, quantity: number) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
+
+  setLastOrder: (items: CartItem[]) => void;
+  clearLastOrder: () => void;
+
   totalItems: () => number;
 }
 
@@ -23,6 +29,7 @@ export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
       items: [],
+      lastOrder: null,
 
       addItem: (item, quantity) => {
         if (quantity <= 0) return;
@@ -69,6 +76,14 @@ export const useCartStore = create<CartStore>()(
 
       clearCart: () => {
         set({ items: [] });
+      },
+
+      setLastOrder: (items) => {
+        set({ lastOrder: items });
+      },
+
+      clearLastOrder: () => {
+        set({ lastOrder: null });
       },
 
       totalItems: () => {

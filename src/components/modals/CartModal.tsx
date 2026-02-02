@@ -1,23 +1,28 @@
+import { useNavigate } from "react-router-dom";
 import CartModalClose from "../../assets/CartModalClose";
 import CartModalRequest from "../../assets/CartModalRequest";
 import CartModalSend from "../../assets/CartModalSend";
 import { useCartStore } from "../../store/cartStore";
 import CartModalItemCard from "../CartModalItemCard";
+import toast from "react-hot-toast";
+import AmenitiesToastIcon from "../../assets/AmenitiesToastIcon";
 
 const CartModal = ({
   setCartOpen,
 }: {
   setCartOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const items = useCartStore((state) => state.items);
-  const removeItem = useCartStore((state) => state.removeItem);
-  const updateQuantity = useCartStore((state) => state.updateQuantity);
-  const clearCart = useCartStore((state) => state.clearCart);
+  const { items, removeItem, updateQuantity, clearCart, setLastOrder } =
+    useCartStore();
+
+  const navigate = useNavigate();
 
   const handleSendAll = () => {
-    console.log("Sending all items:", items);
+    setLastOrder(items);
     clearCart();
+    toast("Request sent successfully", { icon: <AmenitiesToastIcon /> });
     setCartOpen(false);
+    navigate("/success");
   };
 
   return (

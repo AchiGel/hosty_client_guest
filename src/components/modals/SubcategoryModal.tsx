@@ -5,6 +5,8 @@ import { useCartStore } from "../../store/cartStore";
 import SubcategoryBed from "../../assets/SubcategoryBed";
 import SubcategoryClose from "../../assets/SubcategoryClose";
 import ConfirmationModal from "./ConfirmationModal";
+import toast from "react-hot-toast";
+import AmenitiesToastIcon from "../../assets/AmenitiesToastIcon";
 
 const SubcategoryModal = ({
   subcategory,
@@ -40,18 +42,31 @@ const SubcategoryModal = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const hasSelectedItems = Object.values(quantities).some(
+      (quantity) => quantity > 0,
+    );
+
+    if (!hasSelectedItems) {
+      toast.dismiss();
+      toast("Please select at least one item", {
+        icon: <AmenitiesToastIcon />,
+      });
+      return;
+    }
+
     Object.entries(quantities).forEach(([optionId, quantity]) => {
       if (quantity > 0) {
         const option = subcategory.options.find(
           (opt) => opt.id === Number(optionId),
         );
+
         if (option) {
           addItem(
             {
               id: `${subcategory.id}-${optionId}`,
               name: option.label,
               categoryName: subcategory.title,
-              instructions: instructions,
+              instructions,
             },
             quantity,
           );
@@ -59,10 +74,7 @@ const SubcategoryModal = ({
       }
     });
 
-    // setQuantities({});
-    // setInstructions("");
-
-    // onClose();
+    setFormIsSent(true);
   };
 
   return (
@@ -106,7 +118,6 @@ const SubcategoryModal = ({
           instructions={instructions}
           setInstructions={setInstructions}
           quantities={quantities}
-          setFormIsSent={setFormIsSent}
         />
       </div>
       {formIsSent && (
