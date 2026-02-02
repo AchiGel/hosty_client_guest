@@ -14,7 +14,9 @@ const CartModalItemCard = ({
     <div className="rounded-xl border bg-white p-3 text-[#0f1729] border-[#dcdfe5]">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold">{item.name}</p>
+          <p className="truncate text-sm font-semibold text-left">
+            {item.name}
+          </p>
           <p className="mt-0.5 text-xs text-[#676f7e] text-left">
             {item.categoryName}
           </p>

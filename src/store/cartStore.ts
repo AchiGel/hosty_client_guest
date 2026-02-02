@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import toast from "react-hot-toast";
 
 export interface CartItem {
   id: string;
@@ -42,12 +41,10 @@ export const useCartStore = create<CartStore>()(
                 : i,
             ),
           }));
-          toast.success("Quantity updated");
         } else {
           set((state) => ({
             items: [...state.items, { ...item, quantity }],
           }));
-          toast.success("Added to cart");
         }
       },
 
@@ -55,7 +52,6 @@ export const useCartStore = create<CartStore>()(
         set((state) => ({
           items: state.items.filter((item) => item.id !== id),
         }));
-        toast.success("Removed from cart");
       },
 
       updateQuantity: (id, quantity) => {
@@ -73,7 +69,6 @@ export const useCartStore = create<CartStore>()(
 
       clearCart: () => {
         set({ items: [] });
-        toast.success("Cart cleared");
       },
 
       totalItems: () => {
