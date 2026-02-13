@@ -1,18 +1,19 @@
+import type { HotelResponse } from "../types/hotelTypes";
 import Amenities from "./main/Amenities";
-import QuickAccess from "./main/QuickAccess";
+import QuickAccessSection from "./main/QuickAccessSection";
 import RequestButton from "./main/RequestButton";
 import WelcomeSection from "./main/WelcomeSection";
 
-const Main = () => {
+const Main = ({ hotelData }: { hotelData: HotelResponse }) => {
   return (
     <main className="flex-1">
-      <WelcomeSection />
+      <WelcomeSection hotelName={hotelData.name} />
 
       <RequestButton />
 
-      <QuickAccess />
+      <QuickAccessSection quickAccess={hotelData.quickAccess} />
 
-      <Amenities />
+      <Amenities amenities={hotelData.amenities} />
     </main>
   );
 };

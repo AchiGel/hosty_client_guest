@@ -1,12 +1,14 @@
 import WifiModalClose from "../../assets/WifiModalClose";
 import WifiModalCopy from "../../assets/WifiModalCopy";
 import WifiModalIcon from "../../assets/WifiModalIcon";
+import { useHotelQuery } from "../../hooks/useHotelQuery";
 
 const WifiModal = ({
   setActiveModal,
 }: {
-  setActiveModal: React.Dispatch<React.SetStateAction<"menu" | "wifi" | null>>;
+  setActiveModal: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
+  const { data } = useHotelQuery();
   return (
     <div
       onClick={() => {
@@ -40,7 +42,7 @@ const WifiModal = ({
               Network Name
             </label>
             <div className="p-3 rounded-xl bg-neutral-100 font-semibold text-[#111111]">
-              Episode_Guest
+              {data?.wifi.network}
             </div>
           </div>
           <div className="space-y-2">
@@ -49,7 +51,7 @@ const WifiModal = ({
             </label>
             <div className="flex items-center gap-2">
               <div className="flex-1 p-3 rounded-xl bg-neutral-100 font-mono font-semibold text-[#111111]">
-                Episode2024Guest
+                {data?.wifi.password}
               </div>
               <button className="cursor-pointer p-3 rounded-xl bg-[#C6A667] text-white hover:bg-[#b8995c] transition-colors">
                 <WifiModalCopy />

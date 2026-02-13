@@ -4,7 +4,7 @@ import MenuModalIcon from "../../assets/MenuModalIcon";
 const MenuModal = ({
   setActiveModal,
 }: {
-  setActiveModal: React.Dispatch<React.SetStateAction<"menu" | "wifi" | null>>;
+  setActiveModal: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
   return (
     <div

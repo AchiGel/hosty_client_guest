@@ -20,6 +20,7 @@ const SubcategoryModal = ({
   const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [instructions, setInstructions] = useState("");
   const addItem = useCartStore((state) => state.addItem);
+  const items = useCartStore((state) => state.items);
   const [formIsSent, setFormIsSent] = useState(false);
   // Handlers
 
@@ -75,6 +76,7 @@ const SubcategoryModal = ({
     });
 
     setFormIsSent(true);
+    console.log(items);
   };
 
   return (

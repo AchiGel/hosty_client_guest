@@ -1,10 +1,15 @@
 import { useState } from "react";
 import MenuModal from "../modals/MenuModal";
 import WifiModal from "../modals/WifiModal";
-import { CARDS } from "../../constants/quickAccessCards";
+import type { QuickAccess } from "../../types/hotelTypes";
+import { getIcon } from "../../utils/iconMapper";
 
-const QuickAccess = () => {
-  const [activeModal, setActiveModal] = useState<"menu" | "wifi" | null>(null);
+const QuickAccessSection = ({
+  quickAccess,
+}: {
+  quickAccess: QuickAccess[];
+}) => {
+  const [activeModal, setActiveModal] = useState<string | null>(null);
 
   return (
     <>
@@ -13,7 +18,7 @@ const QuickAccess = () => {
           Quick Access
         </h2>
         <div className="flex items-center gap-3">
-          {CARDS.map((card) => (
+          {quickAccess.map((card) => (
             <button
               onClick={() => setActiveModal(card.modalType)}
               key={card.id}
@@ -21,7 +26,9 @@ const QuickAccess = () => {
                  text-gray-400 hover:text-black
                  transition-colors duration-300 cursor-pointer"
             >
-              <div className="transition-colors duration-300">{card.icon}</div>
+              <div className="transition-colors duration-300">
+                {getIcon(card.icon)}
+              </div>
               <span className="self-center text-[13px] font-bold leading-5 text-black">
                 {card.title}
               </span>
@@ -38,4 +45,4 @@ const QuickAccess = () => {
   );
 };
 
-export default QuickAccess;
+export default QuickAccessSection;
