@@ -1,5 +1,4 @@
 import { useState } from "react";
-import type { SubcategoryType } from "../../pages/CategoryDetails";
 import SubcategoryModalForm from "../SubcategoryModalForm";
 import { useCartStore } from "../../store/cartStore";
 import SubcategoryBed from "../../assets/SubcategoryBed";
@@ -7,20 +6,21 @@ import SubcategoryClose from "../../assets/SubcategoryClose";
 import ConfirmationModal from "./ConfirmationModal";
 import toast from "react-hot-toast";
 import AmenitiesToastIcon from "../../assets/AmenitiesToastIcon";
+import type { Subcategory } from "../../types/hotelTypes";
+import { useHotelQuery } from "../../hooks/useHotelQuery";
 
 const SubcategoryModal = ({
   subcategory,
   onClose,
 }: {
-  subcategory: SubcategoryType;
+  subcategory: Subcategory;
   onClose: () => void;
 }) => {
   // States
-
+  const { data, isLoading, error } = useHotelQuery();
   const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [instructions, setInstructions] = useState("");
   const addItem = useCartStore((state) => state.addItem);
-  const items = useCartStore((state) => state.items);
   const [formIsSent, setFormIsSent] = useState(false);
   // Handlers
 
@@ -76,9 +76,11 @@ const SubcategoryModal = ({
     });
 
     setFormIsSent(true);
-    console.log(items);
   };
 
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
+  if (!data) return <div>No data available</div>;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Overlay */}
@@ -120,6 +122,7 @@ const SubcategoryModal = ({
           instructions={instructions}
           setInstructions={setInstructions}
           quantities={quantities}
+          specialTimes={data.specialTimes}
         />
       </div>
       {formIsSent && (

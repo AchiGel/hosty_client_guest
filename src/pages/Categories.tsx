@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import CategoryCard from "../components/CategoryCard";
-import { CATEGORIES } from "../constants/categories";
+import { useHotelQuery } from "../hooks/useHotelQuery";
 
 const Categories = () => {
+  const { data, isLoading, error } = useHotelQuery();
+  if (isLoading)
+    return (
+      <div className="flex-1 flex items-center justify-center">Loading...</div>
+    );
+  if (error) return <div>Error fetching categories</div>;
+  if (!data) return <div>No data found</div>;
   return (
     <div className="flex-1">
       <div className="flex flex-col gap-3 items-center py-6">
@@ -14,8 +21,8 @@ const Categories = () => {
         </p>
       </div>
       <section className="flex flex-col gap-3 pb-8">
-        {CATEGORIES.map((cat) => (
-          <Link key={cat.id} to={cat.title.replace(" ", "_")}>
+        {data.categories.map((cat) => (
+          <Link key={cat.id} to={cat.title.toLowerCase().replace(" ", "_")}>
             <CategoryCard
               title={cat.title}
               subtitle={cat.subtitle}

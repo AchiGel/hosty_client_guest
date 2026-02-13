@@ -1,35 +1,37 @@
 import { useParams } from "react-router-dom";
-import { CATEGORIES } from "../constants/categories";
 import SubcategoryCard from "../components/SubcategoryCard";
-import { useState, type JSX } from "react";
+import { useState } from "react";
 import SubcategoryModal from "../components/modals/SubcategoryModal";
-
-export type SubcategoryType = {
-  id: number;
-  title: string;
-  subtitle: string;
-  icon: JSX.Element;
-  options: {
-    id: number;
-    label: string;
-  }[];
-};
+import { useHotelQuery } from "../hooks/useHotelQuery";
+import { getIcon } from "../utils/iconMapper";
+import type { Subcategory } from "../types/hotelTypes";
 
 const CategoryDetails = () => {
   const params = useParams();
-
+  const { data, isLoading, error } = useHotelQuery();
   const [selectedSubcategory, setSelectedSubcategory] =
-    useState<null | SubcategoryType>(null);
+    useState<null | Subcategory>(null);
 
-  const filtered = CATEGORIES.filter(
-    (cat) => cat.title === params.id?.replace("_", " "),
+  if (isLoading)
+    return (
+      <div className="flex-1 flex items-center justify-center">Loading...</div>
+    );
+
+  if (error) return <div>Error fetching data</div>;
+
+  if (!data) return <div>No data found</div>;
+
+  const filtered = data?.categories.filter(
+    (cat) => cat.title.toLowerCase() === params.id?.replace("_", " "),
   );
+
+  console.log(filtered);
 
   return (
     <div>
       <div className="flex flex-col gap-3 items-center py-6">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#C6A667]/10 text-[#C6A667] mb-4">
-          {filtered[0].icon}
+          {getIcon(filtered[0].icon)}
           <span className="text-xs font-semibold uppercase tracking-wider">
             {filtered[0].title}
           </span>

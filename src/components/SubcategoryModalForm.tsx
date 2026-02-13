@@ -1,17 +1,17 @@
 import { useState } from "react";
 import SubcategoryModalSend from "../assets/SubcategoryModalSend";
-import type { SubcategoryType } from "../pages/CategoryDetails";
 import SpecialTimeButton from "./SpecialTimeButton";
-import { SPECIAL_TIME } from "../constants/specialTime";
+import type { SpecialTime, Subcategory } from "../types/hotelTypes";
 
 type Props = {
-  subcategory: SubcategoryType;
+  subcategory: Subcategory;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   decrease: (id: number) => void;
   increase: (id: number) => void;
   instructions: string;
   setInstructions: React.Dispatch<React.SetStateAction<string>>;
   quantities: Record<number, number>;
+  specialTimes: SpecialTime[];
 };
 
 const SubcategoryModalForm = ({
@@ -22,6 +22,7 @@ const SubcategoryModalForm = ({
   instructions,
   setInstructions,
   quantities,
+  specialTimes,
 }: Props) => {
   const [activeButtonId, setActiveButtonId] = useState<number | null>(1);
 
@@ -80,7 +81,7 @@ const SubcategoryModalForm = ({
           </label>
 
           <div className="grid grid-cols-2 gap-2 mt-2">
-            {SPECIAL_TIME.map((st) => (
+            {specialTimes.map((st) => (
               <SpecialTimeButton
                 key={st.id}
                 activeButtonId={activeButtonId}
