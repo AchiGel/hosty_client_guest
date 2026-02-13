@@ -6,6 +6,7 @@ import { useCartStore } from "../../store/cartStore";
 import CartModalItemCard from "../CartModalItemCard";
 import toast from "react-hot-toast";
 import AmenitiesToastIcon from "../../assets/AmenitiesToastIcon";
+import { useCreateRequest } from "../../hooks/useCreateRequest";
 
 const CartModal = ({
   setCartOpen,
@@ -17,12 +18,27 @@ const CartModal = ({
 
   const navigate = useNavigate();
 
+  const { mutate: createRequest, isPending } = useCreateRequest();
+
   const handleSendAll = () => {
-    setLastOrder(items);
-    clearCart();
-    toast("Request sent successfully", { icon: <AmenitiesToastIcon /> });
-    setCartOpen(false);
-    navigate("/success");
+    createRequest(
+      { room: "101", items },
+      {
+        onSuccess: () => {
+          setLastOrder(items);
+          clearCart();
+          toast("Request sent successfully", {
+            icon: <AmenitiesToastIcon />,
+          });
+          setCartOpen(false);
+          navigate("/success");
+        },
+        onError: (err) => {
+          toast.error("Failed to send request");
+          console.error(err);
+        },
+      },
+    );
   };
 
   console.log(items);
@@ -74,14 +90,14 @@ const CartModal = ({
                 <div className="flex items-center justify-between gap-2">
                   <button
                     onClick={() => clearCart()}
-                    disabled={items.length === 0}
+                    disabled={items.length === 0 || isPending}
                     className="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-[#f6f7f9] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-[#dcdfe5] bg-[#f6f7f9] hover:bg-[#c9a65e] hover:text-[#0f1729] h-10 px-4 py-2"
                   >
                     Clear
                   </button>
                   <button
                     onClick={handleSendAll}
-                    disabled={items.length === 0}
+                    disabled={items.length === 0 || isPending}
                     className="cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-[#f6f7f9] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-[#182543] text-[#eee8dd] hover:bg-[#18254391] shadow-sm hover:shadow-md h-10 px-4 py-2"
                   >
                     <CartModalSend />
