@@ -25,6 +25,8 @@ const CartModal = ({
     navigate("/success");
   };
 
+  console.log(items);
+
   return (
     <div
       onClick={() => setCartOpen(false)}

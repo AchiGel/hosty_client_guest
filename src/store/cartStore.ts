@@ -5,13 +5,20 @@ export interface CartItem {
   id: string;
   name: string;
   quantity: number;
+  image?: string;
   instructions?: string;
   categoryName?: string;
+  subcategoryId?: number;
+  optionId?: number;
+  deliveryTime?: string;
 }
 
 interface CartStore {
   items: CartItem[];
   lastOrder: CartItem[] | null;
+  roomNumber: string;
+
+  setRoomNumber: (room: string) => void;
 
   addItem: (item: Omit<CartItem, "quantity">, quantity: number) => void;
   removeItem: (id: string) => void;
@@ -29,6 +36,9 @@ export const useCartStore = create<CartStore>()(
     (set, get) => ({
       items: [],
       lastOrder: null,
+      roomNumber: "402",
+
+      setRoomNumber: (room) => set({ roomNumber: room }),
 
       addItem: (item, quantity) => {
         if (quantity <= 0) return;

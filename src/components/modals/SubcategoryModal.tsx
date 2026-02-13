@@ -20,6 +20,8 @@ const SubcategoryModal = ({
   const { data, isLoading, error } = useHotelQuery();
   const [quantities, setQuantities] = useState<Record<number, number>>({});
   const [instructions, setInstructions] = useState("");
+  const [activeButtonId, setActiveButtonId] = useState<number | null>(1);
+  const [customTime, setCustomTime] = useState(3);
   const addItem = useCartStore((state) => state.addItem);
   const [formIsSent, setFormIsSent] = useState(false);
   // Handlers
@@ -57,6 +59,16 @@ const SubcategoryModal = ({
 
     Object.entries(quantities).forEach(([optionId, quantity]) => {
       if (quantity > 0) {
+        let deliveryTime = "Now";
+        const timeObj = data?.specialTimes.find((t) => t.id === activeButtonId);
+        if (timeObj) {
+          if (timeObj.id === 4) {
+            deliveryTime = `In ${customTime} hours`;
+          } else {
+            deliveryTime = timeObj.time;
+          }
+        }
+
         const option = subcategory.options.find(
           (opt) => opt.id === Number(optionId),
         );
@@ -67,7 +79,10 @@ const SubcategoryModal = ({
               id: `${subcategory.title}-${subcategory.id}-${optionId}`,
               name: option.label,
               categoryName: subcategory.title,
+              subcategoryId: subcategory.id,
+              optionId: option.id,
               instructions,
+              deliveryTime,
             },
             quantity,
           );
@@ -123,6 +138,10 @@ const SubcategoryModal = ({
           setInstructions={setInstructions}
           quantities={quantities}
           specialTimes={data.specialTimes}
+          activeButtonId={activeButtonId}
+          setActiveButtonId={setActiveButtonId}
+          customTime={customTime}
+          setCustomTime={setCustomTime}
         />
       </div>
       {formIsSent && (

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SubcategoryModalSend from "../assets/SubcategoryModalSend";
 import SpecialTimeButton from "./SpecialTimeButton";
 import type { SpecialTime, Subcategory } from "../types/hotelTypes";
@@ -12,6 +11,10 @@ type Props = {
   setInstructions: React.Dispatch<React.SetStateAction<string>>;
   quantities: Record<number, number>;
   specialTimes: SpecialTime[];
+  activeButtonId: number | null;
+  setActiveButtonId: React.Dispatch<React.SetStateAction<number | null>>;
+  customTime: number;
+  setCustomTime: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const SubcategoryModalForm = ({
@@ -23,9 +26,11 @@ const SubcategoryModalForm = ({
   setInstructions,
   quantities,
   specialTimes,
+  activeButtonId,
+  setActiveButtonId,
+  customTime,
+  setCustomTime,
 }: Props) => {
-  const [activeButtonId, setActiveButtonId] = useState<number | null>(1);
-
   return (
     <form
       onSubmit={(e) => {
@@ -97,6 +102,8 @@ const SubcategoryModalForm = ({
               <span className="text-sm text-neutral-600">In</span>
               <input
                 type="number"
+                value={customTime}
+                onChange={(e) => setCustomTime(Number(e.target.value))}
                 min={1}
                 max={24}
                 placeholder="3"
